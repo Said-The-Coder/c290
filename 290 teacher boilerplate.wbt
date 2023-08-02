@@ -1,0 +1,71 @@
+#VRML_SIM R2022a utf8
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.16837093346643808 -0.1293905129298339 0.977194619268544 4.429822169493905
+  position 1.748021062085334 5.565783654288529 2.258654846753855
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 6 3
+  floorAppearance OsbWood {
+  }
+}
+WoodenBox {
+  translation 1.5 -0.4 0.3
+}
+UR5e {
+  translation 1.5 -0.4 0.6
+  toolSlot [
+    Robotiq3fGripper {
+    }
+    DEF distance_sensor DistanceSensor {
+      translation 0 0.095 0.04
+      rotation 0 0 1 1.57
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.0666667 0 1
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      name "distance_sensor"
+      physics Physics {
+      }
+    }
+  ]
+}
+ConveyorBelt {
+  translation 0 0.4 0
+  size 5 0.5 0.5
+}
+Solid {
+  translation -2 0.4 0.55
+  children [
+    DEF red_box Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        roughness 1
+        metalness 0
+      }
+      geometry Box {
+        size 0.1 0.1 0.1
+      }
+    }
+  ]
+  boundingObject USE red_box
+  physics Physics {
+  }
+}
+MetalStorageBox {
+  translation 2.4 -0.2 0
+  rotation 0 0 1 1.57
+}
